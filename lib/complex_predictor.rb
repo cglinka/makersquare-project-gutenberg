@@ -7,6 +7,21 @@ class ComplexPredictor < Predictor
   # Returns nothing.
   def train!
     @data = {}
+
+    @all_books.each do |category, books|
+      @data[category] = {
+        :counts => Hash.new(0),
+        :totalwords => 0
+      }
+      books.each do |filename, tokens|
+        tokens.each do |w|
+          if good_token?(w)
+            @data[category][:counts][w] +=1
+            @data[category][:totalwords] +=1
+          end
+        end
+      end
+    end
   end
 
   # Public: Predicts category.
@@ -15,8 +30,11 @@ class ComplexPredictor < Predictor
   #
   # Returns a category.
   def predict(tokens)
-    # Always predict astronomy, for now.
-    :astronomy
+
+    @data.each do |category, counts|
+      
+    end
+
+    predicted_category
   end
 end
-
