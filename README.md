@@ -1,3 +1,10 @@
+Clone of https://bitbucket.org/elben/makersquare-project-gutenberg
+
+Excercise on Data Structures and Algorithms.
+
+----
+
+
 # Project Gutenberg
 
 Build a system that will, given a book, predict which category that book is in.
